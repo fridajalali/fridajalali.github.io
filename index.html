@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frida Jalali | Graphic Designer & Visual Artist</title>
+    <meta name="description" content="Portfolio of Frida Jalali, Graphic Designer and Visual Artist based in Italy.">
+    
+    <!-- Google Fonts: Space Grotesk for headings (Creative) and Inter for body (Clean/Readable) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #f9f9f9; /* Soft off-white */
+            --text-color: #1a1a1a; /* Soft black */
+            --accent-color: #4a4a4a; /* Dark Grey */
+            --highlight-color: #2D5BFF; /* A creative visual "pop" blue */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* Main Container */
+        .card {
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        /* Left Column: Identity & Bio */
+        .identity {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid #ddd;
+            padding-left: 2rem;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1.5px;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .bio {
+            font-size: 1rem;
+            max-width: 400px;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        /* Right Column: Actions & Contact */
+        .actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Link Styling */
+        .link-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-link {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            width: fit-content;
+        }
+
+        /* Creative Hover Effect */
+        .btn-link::before {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--highlight-color);
+            transition: width 0.3s ease;
+        }
+
+        .btn-link:hover {
+            color: var(--highlight-color);
+        }
+
+        .btn-link:hover::before {
+            width: 100%;
+        }
+
+        .arrow {
+            font-size: 1rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .btn-link:hover .arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            border-top: 1px solid #ddd;
+            padding-top: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-color);
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: var(--highlight-color);
+            border-bottom-color: var(--highlight-color);
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .card {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding-top: 2rem;
+            }
+
+            .identity {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .btn-link {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="card">
+        <!-- Identity Section -->
+        <section class="identity">
+            <h1>Frida Jalali</h1>
+            <h2>Graphic Designer & Visual Artist</h2>
+            
+            <p class="bio">
+                Creative and detail-oriented professional with a passion for creating compelling visual experiences. 
+                Combining artistic vision with technical expertise to deliver innovative design solutions.
+            </p>
+        </section>
+
+        <!-- Action & Contact Section -->
+        <section class="actions">
+            <nav class="link-group">
+                <a href="https://www.behance.net/faridehjalali" target="_blank" class="btn-link">
+                    View Portfolio <span class="arrow">→</span>
+                </a>
+                <a href="https://www.linkedin.com/in/fridajalali/" target="_blank" class="btn-link">
+                    LinkedIn Profile <span class="arrow">↗</span>
+                </a>
+                <!-- IMPORTANT: Make sure your PDF is named 'cv.pdf' and is in the same folder -->
+                <a href="cv.pdf" target="_blank" class="btn-link">
+                    Download CV <span class="arrow">↓</span>
+                </a>
+            </nav>
+
+            <footer class="contact-info">
+                <p><strong>Contact</strong></p>
+                <p>Email: <a href="mailto:jalalifrida@gmail.com">jalalifrida@gmail.com</a></p>
+                <p>Phone: <a href="tel:+393517781187">+39 351 778 1187</a></p>
+                <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.7;">Based in Italy</p>
+            </footer>
+        </section>
+    </main>
+
+</body>
+</html>
